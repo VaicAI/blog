@@ -11,6 +11,7 @@
 use Roots\WPConfig\Config;
 use function Env\env;
 
+set_time_limit(36000);
 /**
  * Directory containing all of the site's files
  *
