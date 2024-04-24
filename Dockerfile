@@ -16,6 +16,7 @@ RUN echo $WORDPRESS_DB_CA | base64 -d > /etc/ssl/certs/ca-cert.crt
 # Ensure the certificate is readable
 RUN chmod 644 /etc/ssl/certs/ca-cert.crt
 
+ENV WORDPRESS_DB_SSL_CA=/etc/ssl/certs/ca-cert.crt
 
 # Expose port 80 for HTTP traffic
 EXPOSE 80
