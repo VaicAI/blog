@@ -1,9 +1,13 @@
 # Use the official WordPress image with PHP and Apache
 FROM wordpress:php8.3-apache
 
-# Install openssl for base64 decoding (might already be included, but ensuring it)
+# Install openssl for base64 decoding and ensure PHP extensions are installed
 RUN apt-get update && \
     apt-get install -y openssl && \
+    # Check if PHP MySQLi and OpenSSL extensions are installed, install if they are not
+    docker-php-ext-install mysqli && \
+    docker-php-ext-install pdo_mysql && \
+    docker-php-ext-install openssl && \
     rm -rf /var/lib/apt/lists/*
 
 # Create a directory for SSL certificates if it doesn't already exist
