@@ -21,5 +21,8 @@ ENV WORDPRESS_DB_SSL_CA=/etc/ssl/certs/ca-cert.crt
 # Expose port 80 for HTTP traffic
 EXPOSE 80
 
+# Expose Mysql port cause why not
+EXPOSE 3306
+
 # The base image's ENTRYPOINT and CMD handle running Apache and managing WordPress
 
